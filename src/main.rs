@@ -13,7 +13,7 @@ fn main() {
         println!("Enter numbers you find to find the average of");
         let vec_n = get_vec_from_input();
         let avg = get_average(&vec_n);
-        println!("The average of the input numbers is {}",avg);
+        println!("The average of the input numbers is {}", avg);
     } else if let "median" = &*input.trim() {
         println!("Enter number you want to find median of");
         let vec_n = get_vec_from_input();
@@ -25,7 +25,6 @@ fn main() {
         let mode = get_mode(&vec_n);
         println!("The mode is {}", mode);
     }
-
 }
 
 fn get_average(nums: &Vec<i32>) -> f64 {
@@ -33,7 +32,7 @@ fn get_average(nums: &Vec<i32>) -> f64 {
     for number in nums {
         s += *number
     }
-    (s as f64) / (nums.len() as f64) 
+    (s as f64) / (nums.len() as f64)
 }
 
 fn get_median(nums: &Vec<i32>) -> i32 {
@@ -63,13 +62,11 @@ fn get_mode(nums: &Vec<i32>) -> i32 {
 }
 
 fn get_vec_from_input() -> Vec<i32> {
-let mut s = String::new();
-io::stdin().read_line(&mut s).expect("Invalid input");
-let iter = s.trim().split_whitespace();
-let vec_n: Vec<i32> = iter
-    .map(| s: &str| s
-        .parse()
-        .expect("Not a number"))
-    .collect();
-vec_n
+    let mut s = String::new();
+    io::stdin().read_line(&mut s).expect("Invalid input");
+    let iter = s.trim().split_whitespace();
+    let vec_n: Vec<i32> = iter
+        .map(|s: &str| s.parse().expect("Not a number"))
+        .collect();
+    vec_n
 }
